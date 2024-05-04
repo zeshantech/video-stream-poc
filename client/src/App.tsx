@@ -5,6 +5,7 @@ import VideoUploadModal from "./VideoUploadModal";
 import { Button } from "evergreen-ui";
 import axios from "axios";
 import { SERVER_URL } from "./constants";
+import "./App.css";
 
 export default function App() {
   const playerRef = useRef(null);
@@ -46,17 +47,13 @@ export default function App() {
     <div>
       <div>
         <h1>Video player</h1>
+        <Button onClick={() => setVideoUploadModalVisible(true)}>Upload Video </Button>
       </div>
-      {videos.map((video, index) => {
-        console.log(video.url);
-
-        return (
-          <div key={index}>
-            <VideoPlayer options={{ ...videoPlayerOptions, sources: [{ src: video.url, type: "application/x-mpegURL" }] }} onReady={handlePlayerReady} />
-          </div>
-        );
-      })}
-      <Button onClick={() => setVideoUploadModalVisible(true)}>Upload Video </Button>
+      <div className='video-container'>
+        {videos.map((video) => (
+          <VideoPlayer options={{ ...videoPlayerOptions, sources: [{ src: video.url, type: "application/x-mpegURL" }] }} onReady={handlePlayerReady} />
+        ))}
+      </div>
       <VideoUploadModal showModal={videoUploadModalVisible} onClose={() => setVideoUploadModalVisible(false)} />
     </div>
   );

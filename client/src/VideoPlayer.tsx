@@ -48,7 +48,7 @@ export default function VideoPlayer({ options, onReady }: VideoPlayerProps) {
   }, [playerRef]);
 
   return (
-    <div data-vjs-player style={{ width: "600px" }}>
+    <div data-vjs-player style={{ width: "300px" }}>
       <div ref={videoRef} />
     </div>
   );

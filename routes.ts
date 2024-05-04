@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { upload } from "./middleware/multer.middleware";
+import { upload } from "./multer.middleware";
 import { createVideo, deleteVideoById, getAllVideos } from "./video/video.service";
 
 const router = Router();
